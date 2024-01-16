@@ -1,0 +1,1 @@
+declare const apis: typeof import("./index").default;

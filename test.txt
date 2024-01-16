@@ -1,0 +1,27 @@
+
+> pesocritico@1.0.0 start
+> electron-forge start
+
+[STARTED] Checking your system
+[STARTED] Checking git exists
+[STARTED] Checking node version
+[STARTED] Checking packageManager version
+[TITLE] Found node@18.17.0
+[SUCCESS] Found node@18.17.0
+[TITLE] Found git@2.41.0.windows.3
+[SUCCESS] Found git@2.41.0.windows.3
+[TITLE] Found npm@10.2.0
+[SUCCESS] Found npm@10.2.0
+[SUCCESS] Checking your system
+[STARTED] Locating application
+[SUCCESS] Locating application
+[STARTED] Loading configuration
+[SUCCESS] Loading configuration
+[STARTED] Preparing native dependencies
+[TITLE] Preparing native dependencies
+[SUCCESS] Preparing native dependencies
+[STARTED] Running generateAssets hook
+[SUCCESS] Running generateAssets hook
+[STARTED] [plugin-webpack] Compiling main process code
+[SUCCESS] [plugin-webpack] Compiling main process code
+[STARTED] [plugin-webpack] Launching dev servers for renderer process code
