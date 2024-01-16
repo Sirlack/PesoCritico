@@ -6,7 +6,8 @@ import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
 import { modvalue } from "../store/reducers/basicReducer";
 import { RootState } from "../store/store";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import MenuBar from "./Generics/MenuBar";
 
 class I_User extends React.Component<RootState>{
 
@@ -34,6 +35,7 @@ class I_User extends React.Component<RootState>{
         return(
         <div>        
         {this.dialogTest()}
+        <div><MenuBar></MenuBar></div>
 
         <div className="card flex justify-content-center">
             <Button label="Create Account" icon="pi pi-check" onClick={() => this.saveActor()} />
