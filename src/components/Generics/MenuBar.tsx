@@ -1,7 +1,10 @@
 import React from 'react'; 
 import { Menubar } from 'primereact/menubar';
+import { useNavigate  } from "react-router-dom";
 
-export default function MenuBar() {    
+export default function MenuBar() {  
+    const navigate = useNavigate();  
+
     const items = [
         {
             label: 'Router',
@@ -9,7 +12,9 @@ export default function MenuBar() {
             items: [
                 {
                     label: 'Styled',
-                    url: '/main_window'
+                    command: () => {
+                        navigate("/test");                        
+                    }
                 },
                 {
                     label: 'Unstyled',
@@ -21,7 +26,7 @@ export default function MenuBar() {
 
     return (
         <div className="card">
-            <Menubar model={items} />
+            <Menubar  model={items} />
         </div>
     )
 }

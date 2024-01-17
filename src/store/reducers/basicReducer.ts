@@ -26,8 +26,7 @@ export const basicReducer = createSlice({
         visible: false,
         visibleTest: false,
         stateTest: null
-        },
-        modvalue: (value: {payload: any, type: string}) => void null,
+        }
   },
   reducers: {    
       modvalue: (state:any,action: {type: string, payload: {payload:any , type: string}})  => {
@@ -41,4 +40,4 @@ export const basicReducer = createSlice({
 // Action creators are generated for each case reducer function
 export const { modvalue } = basicReducer.actions
 
-export default basicReducer.reducer
+export default basicReducer
