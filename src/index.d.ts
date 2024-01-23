@@ -1,1 +1,1 @@
-declare const apis: typeof import("./index").default;
+declare const apis: typeof import("./preload").default;

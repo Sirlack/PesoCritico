@@ -1,6 +1,7 @@
 import { app, BrowserWindow,ipcMain } from 'electron';
 import MDBCreateUser from './services/MDBCreateUser';
 import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
+import MDBReadUser from './services/MDBReadUser';
 
 app.whenReady().then(() => {
   installExtension(REDUX_DEVTOOLS)
@@ -69,4 +70,11 @@ const exportis = { handleevent : function handleevent(event:any, value:any){
 }
 };
 ipcMain.handle('auth:get-profile',exportis.handleevent);
+
+const exportis2 = { handleevent : async function handleevent(event:any, value:any){
+  let dabaseMD = new MDBReadUser();
+  return await dabaseMD.readValue(value.info);
+}
+};
+ipcMain.handle('auth.get-user',exportis2.handleevent);
 

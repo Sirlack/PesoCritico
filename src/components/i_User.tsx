@@ -18,8 +18,8 @@ class I_User extends React.Component<HeaderProps>{
     }
     saveActor(){                           
         if(this.props.basicReducer.info.password === this.props.basicReducer.secondary.password2){
-            this.props.modvalue({type:'secondary.visibleTest',payload:true});          
-            apis.dev(this.props.basicReducer.info);            
+            this.props.modvalue({type:'secondary.visibleTest',payload:true});                      
+            apis.dev(this.props.basicReducer.info);                                                
         }    
                                             
     }    
@@ -80,5 +80,4 @@ const mapStateToProps = (state: RootState)  => {
 
 type HeaderProps = ConnectedProps<typeof connector>;
 const connector = connect(mapStateToProps, {modvalue});
-
 export default connector( I_User);

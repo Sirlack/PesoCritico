@@ -5,8 +5,7 @@ export const userReducer = createSlice({
   initialState: {
     info:{
         name: null,        
-        password: null},
-        midvalue: (value: {payload: any, type: string}) => void null,
+        password: null}
   },
   reducers: {    
       midvalue: (state:any,action: {type: string, payload: {payload:any , type: string}})  => {

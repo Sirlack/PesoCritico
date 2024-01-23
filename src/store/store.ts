@@ -1,9 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import basicReducer from './reducers/basicReducer'
 import userReducer from './reducers/userReducer';
-import { combineReducers } from 'redux';
-import {modvalue} from './reducers/basicReducer';
-import { useDispatch } from 'react-redux'
+
 
 export const store =  configureStore({
   reducer: { basicReducer: basicReducer.reducer,
