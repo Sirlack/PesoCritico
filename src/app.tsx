@@ -1,10 +1,12 @@
 import { createRoot } from 'react-dom/client';
 import I_User from './components/i_User';
 import Login from './components/LogIn';
+import WeightInfo from './components/WeightInfo';
 import { PrimeReactProvider } from 'primereact/api';
 import {store} from './store/store';
 import { Provider } from 'react-redux';
 import { Route,Routes,BrowserRouter } from 'react-router-dom';
+
 
 
 
@@ -17,6 +19,7 @@ root.render(
       <Routes>
       <Route path="/main_window" element={<I_User></I_User>} />
       <Route path="/test" element={<Login></Login>} />
+      <Route path='/iWeight' element={<WeightInfo></WeightInfo>}/>
       </Routes>
     </BrowserRouter>
 </Provider>

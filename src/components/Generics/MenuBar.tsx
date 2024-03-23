@@ -13,12 +13,12 @@ export default function MenuBar() {
                 {
                     label: 'Styled',
                     command: () => {
-                        navigate("/test");                        
+                        navigate("/iWeight");                        
                     }
                 },
                 {
                     label: 'Unstyled',
-                    url: '/test'
+                    url: '/iWeight'
                 }
             ]
         },

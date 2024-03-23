@@ -2,6 +2,7 @@ import { app, BrowserWindow,ipcMain } from 'electron';
 import MDBCreateUser from './services/MDBCreateUser';
 import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
 import MDBReadUser from './services/MDBReadUser';
+import MDBInsertInfoWeight from './services/MDBInsertInfoWeight';
 
 app.whenReady().then(() => {
   installExtension(REDUX_DEVTOOLS)
@@ -77,4 +78,11 @@ const exportis2 = { handleevent : async function handleevent(event:any, value:an
 }
 };
 ipcMain.handle('auth.get-user',exportis2.handleevent);
+
+const exportis3 = { handleevent : function handleevent(event:any, value:any){
+  let dabaseMD = new MDBInsertInfoWeight();
+  dabaseMD.setInfoWeight(value);
+}
+};
+ipcMain.handle('auth.set-infoweight',exportis3.handleevent);
 
