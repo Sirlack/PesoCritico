@@ -5,6 +5,5 @@ interface ICreateUserField{
     date:Date,
     name: String,
     surname: String,
-    password: String,
-    password2: String    
+    password: String   
 }

@@ -17,7 +17,7 @@ class Login extends React.Component<HeaderProps>{
     async readActor(value:any){
         let response = await apis.read(value);
         this.props.modvalue({type:'info.name',payload:response.name});
-        this.props.modvalue({type:'info.password',payload:response.password});
+        this.props.modvalue({type:'info.surname',payload:response.surname});        
         this.props.modvalue({type:'info.date',payload:response.date});
     }
     render(): React.ReactNode{

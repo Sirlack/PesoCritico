@@ -19,7 +19,7 @@ constructor(){
       });
 }
 async setUser(info:ICreateUserField): Promise<Boolean>{
-        let pipeline;
+        
         console.log("Estoy dentro");
         try {
           // Connect the client to the server (optional starting in v4.7)
