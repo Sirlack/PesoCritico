@@ -1,19 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
-import IInfoWeight from '../models/IInfoWeight';
+import {ICurrentInfoWeight} from '../models/IInfoWeight';
 
 export const weightInfoReducer = createSlice({
   name: 'weightInfoReducer',
-  initialState: { } as IInfoWeight,
+  initialState: {currentValue:{name:null,date:null, weight:null}, listValues:null, generalListValues:null}  as ICurrentInfoWeight,
   reducers: {    
-      midvalue: (state:any,action: {type: string, payload: {payload:any , type: string}})  => {
+    wirAction: (state:any,action: {type: string, payload: {payload:any , type: string}})  => {
       let field: string[] = action.payload.type.split('.') ;
       
-        state[field[0]] = action.payload.payload;            
-    }
+        state["currentValue"][field[0]] = action.payload.payload;            
+        //state["currentValue.name"] = action.payload.payload;            
+    },
+    wirAction2: (state:any,action: {type: string, payload: {payload:any , type: string}})  => {            
+        state["listValues"] = action.payload.payload;            
+    },
+    setGeneralList: (state:any,action: {type: string, payload: {payload:any }})  => {            
+      state["generalListValues"] = action.payload.payload;            
+  },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { midvalue } = weightInfoReducer.actions
+export const { wirAction, wirAction2, setGeneralList } = weightInfoReducer.actions
 
 export default weightInfoReducer

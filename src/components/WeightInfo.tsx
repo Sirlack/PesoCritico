@@ -6,9 +6,9 @@ import { InputNumber } from "primereact/inputnumber";
 import {Calendar} from "primereact/calendar";
 import { RootState } from "../store/store";
 import { connect,ConnectedProps } from 'react-redux';
-import {midvalue} from "../store/reducers/weightInfoReducer";
+import {wirAction} from "../store/reducers/weightInfoReducer";
 import { NavLink } from "react-router-dom";
-import IInfoWeight from "../store/models/IInfoWeight";
+import {IInfoWeight} from "../store/models/IInfoWeight";
 
 class WeightInfo extends React.Component<HeaderProps>{
     state: any ;
@@ -25,10 +25,10 @@ class WeightInfo extends React.Component<HeaderProps>{
         return(
         <div>            
             <li><NavLink to="/main_window">main_window</NavLink></li>
-            <InputText value={this.props.weightInfoReducer.name} placeholder="Name" onChange={(e) => this.props.midvalue({type:'name',payload:e.target.value})}  />            
-            <InputNumber value={this.props.weightInfoReducer.weight}  placeholder="Weight" onChange={(e) => this.props.midvalue({type:'weight',payload:e.value}) }  />
-            <Calendar value={this.props.weightInfoReducer.date} placeholder="Date" onChange={(e: { value: any; }) => this.props.midvalue({type:'date',payload:e.value})} />
-            <div><Button label="Insert" icon="pi pi-check" onClick={() => this.setWeightInfo(this.props.weightInfoReducer)} /></div>
+            <InputText value={this.props.weightInfoReducer.currentValue.name} placeholder="Name" onChange={(e) => this.props.wirAction({type:'name',payload:e.target.value})}  />            
+            <InputNumber value={this.props.weightInfoReducer.currentValue.weight}  placeholder="Weight" onChange={(e) => this.props.wirAction({type:'weight',payload:e.value}) }  />
+            <Calendar value={this.props.weightInfoReducer.currentValue.date} placeholder="Date" onChange={(e: { value: any; }) => this.props.wirAction({type:'date',payload:e.value})} />
+            <div><Button label="Insert" icon="pi pi-check" onClick={() => this.setWeightInfo(this.props.weightInfoReducer.currentValue)} /></div>
         </div>
         );
     }
@@ -39,6 +39,6 @@ const mapStateToProps = (state: RootState) => {
     };
 }
 type HeaderProps = ConnectedProps<typeof connector>;
-const connector = connect(mapStateToProps, {midvalue});
+const connector = connect(mapStateToProps, {wirAction});
 export default connector( WeightInfo);
 //export default connect(mapStateToProps, {midvalue} )( Login);

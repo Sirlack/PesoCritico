@@ -74,6 +74,9 @@ ipcMain.handle('auth:get-profile',exportis.handleevent);
 
 const exportis2 = { handleevent : async function handleevent(event:any, value:any){
   let dabaseMD = new MDBReadUser();
+  if(value.tableName){
+    return await dabaseMD.readValue(value);  
+  }
   return await dabaseMD.readValue(value.info);
 }
 };
@@ -85,4 +88,26 @@ const exportis3 = { handleevent : function handleevent(event:any, value:any){
 }
 };
 ipcMain.handle('auth.set-infoweight',exportis3.handleevent);
+
+const exportis4 = { handleevent : async function handleevent(event:any, value:String){
+  let dabaseMD = new MDBReadUser();
+  let info:IDataBaseFieldRead = {tableName:null, fieldName : null, fieldValue:null};
+  info.tableName = "InfoWeight";
+  info.fieldName = "name";
+  info.fieldValue = value;
+  return await dabaseMD.readListValues(info);
+}
+};
+
+ipcMain.handle('auth.get-infoweight',exportis4.handleevent);
+
+const exportis5 = { handleevent : async function handleevent(event:any){
+  let dabaseMD = new MDBReadUser();
+  let info:IDataBaseFieldRead = {tableName:null, fieldName : null, fieldValue:null};
+  info.tableName = "InfoWeight";
+  return await dabaseMD.readListValues(info);
+}
+};
+
+ipcMain.handle('auth.chargeDates',exportis5.handleevent);
 

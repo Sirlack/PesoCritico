@@ -6,7 +6,8 @@ import { PrimeReactProvider } from 'primereact/api';
 import {store} from './store/store';
 import { Provider } from 'react-redux';
 import { Route,Routes,BrowserRouter } from 'react-router-dom';
-
+import LineDemo from './components/Generics/LineDemo';
+import LoginPage from './components/Pages/LoginPage';
 
 
 
@@ -17,9 +18,11 @@ root.render(
     {/*<I_User></I_User>*/}
     <BrowserRouter>
       <Routes>
-      <Route path="/main_window" element={<I_User></I_User>} />
-      <Route path="/test" element={<Login></Login>} />
-      <Route path='/iWeight' element={<WeightInfo></WeightInfo>}/>
+      <Route path="/login" element={<Login></Login>} />
+      <Route path="/create_user" element={<I_User></I_User>} />
+      <Route path='/insert_weight' element={<WeightInfo></WeightInfo>}/>
+      <Route path='/test' element={<LineDemo></LineDemo>}/>
+      <Route path='/main_window' element={<LoginPage></LoginPage>}/>
       </Routes>
     </BrowserRouter>
 </Provider>

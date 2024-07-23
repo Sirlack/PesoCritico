@@ -1,5 +1,5 @@
 
-import IInfoWeight from "../store/models/IInfoWeight";
+import {IInfoWeight} from "../store/models/IInfoWeight";
 import IInsertInfoWeight from "./IInsertInfoWeight";
 import { MongoClient, ServerApiVersion } from "mongodb" ;
 

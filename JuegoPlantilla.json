@@ -1,0 +1,140 @@
+[{
+        "juego": {
+            "namegame": "The Gordos",
+            "participants":
+            [{
+                    "name": "Nacho"
+                }, {
+                    "name": "Maribel"
+                }, {
+                    "name": "Inma"
+                }
+            ],
+
+            "admin":
+            [{
+                    "name": "Nacho"
+                }
+            ],
+
+            "games": [{
+                    "date": "2024-06-07T23:00:00.000Z",
+                    "participantsData": [{
+                            "name": "Nacho",
+                            "weight": 100,
+							"price":0,
+							"minWeight":100,
+							"weightDiff":0
+                        }, {
+                            "name": "Maribel",
+                            "weight": 75,
+							"price":0,
+							"minWeight":75,
+							"weightDiff":0							
+                        }, {
+                            "name": "Inma",
+                            "weight": 93,
+							"price":0,
+							"minWeight":93,
+							"weightDiff":0							
+                        }
+                    ]
+                }, {
+                    "date": "2024-06-07T23:00:00.000Z",
+                    "participantsData": [{
+                            "name": "Nacho",
+                            "weight": 100,
+							"price":8,
+							"minWeight":100,
+							"weightDiff":0
+                        }, {
+                            "name": "Maribel",
+                            "weight": 74,
+							"price":3,
+							"minWeight":75,
+							"weightDiff":-1							
+                        }, {
+                            "name": "Inma",
+                            "weight": 93,
+							"price":5,
+							"minWeight":92.5,
+							"weightDiff":-0.5							
+                        }
+                    ]
+                },{
+                    "date": "2024-06-07T23:00:00.000Z",
+                    "participantsData": [{
+                            "name": "Nacho",
+                            "weight": 99.5,
+							"price":3,
+							"minWeight":100,
+							"weightDiff":-0.5
+                        }, {
+                            "name": "Maribel",
+                            "weight": 73.8,
+							"price":8,
+							"minWeight":74,
+							"weightDiff":-0.2							
+                        }, {
+                            "name": "Inma",
+                            "weight": 92.1,
+							"price":5,
+							"minWeight":92.5,
+							"weightDiff":-0.4							
+                        }
+                    ]
+                },{
+                    "date": "2024-06-07T23:00:00.000Z",
+                    "participantsData": [{
+                            "name": "Nacho",
+                            "weight": 99.6,
+							"price":8,
+							"minWeight":99.5,
+							"weightDiff":0.1
+                        }, {
+                            "name": "Maribel",
+                            "weight": 73.4,
+							"price":3,
+							"minWeight":73.8,
+							"weightDiff":-0.4							
+                        }, {
+                            "name": "Inma",
+                            "weight": 92.5,
+							"price":10,
+							"minWeight":92.1,
+							"weightDiff":0.4							
+                        }
+                    ]
+                }
+            ],
+            "Logic": [{
+                    "type": ">",
+                    "levels": [{
+                            "level": 0,
+                            "price": 5
+                        }, {
+                            "level": 1,
+                            "price": 8
+                        }, {
+                            "level": 2,
+                            "price": 10
+                        }
+                    ]
+                }, {
+                    "type": "<=",
+                    "levels": [{
+                            "level": 0,
+                            "price": 3
+                        }, {
+                            "level": 1,
+                            "price": 6
+                        }, {
+                            "level": 2,
+                            "price": 8
+                        }
+                    ]
+                }
+            ]
+        }
+}
+]
