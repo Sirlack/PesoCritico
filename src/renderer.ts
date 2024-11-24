@@ -31,6 +31,7 @@ import "primereact/resources/themes/lara-light-cyan/theme.css";
 import 'primeflex/primeflex.css';                                   // css utility
 import 'primeicons/primeicons.css';
 import 'primereact/resources/primereact.css';  
+
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
 // Add this to the end of the existing file

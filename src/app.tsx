@@ -8,12 +8,15 @@ import { Provider } from 'react-redux';
 import { Route,Routes,BrowserRouter } from 'react-router-dom';
 import LineDemo from './components/Generics/LineDemo';
 import LoginPage from './components/Pages/LoginPage';
+import Tailwind from 'primereact/passthrough/tailwind';
+import { twMerge } from 'tailwind-merge';
+import UserGamePage from './components/Pages/UserGamePage';
 
 
 
 const root = createRoot(document.body);
 root.render(
-<PrimeReactProvider>
+<PrimeReactProvider value={{ unstyled: false, pt: Tailwind, ptOptions: { mergeSections: true, mergeProps: true } } } >
 <Provider store={store}>
     {/*<I_User></I_User>*/}
     <BrowserRouter>
@@ -23,6 +26,7 @@ root.render(
       <Route path='/insert_weight' element={<WeightInfo></WeightInfo>}/>
       <Route path='/test' element={<LineDemo></LineDemo>}/>
       <Route path='/main_window' element={<LoginPage></LoginPage>}/>
+      <Route path='/user_gamepage' element={<UserGamePage></UserGamePage>}/>
       </Routes>
     </BrowserRouter>
 </Provider>

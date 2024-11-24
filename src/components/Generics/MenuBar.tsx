@@ -13,12 +13,12 @@ export default function MenuBar() {
                 {
                     label: 'Styled',
                     command: () => {
-                        navigate("/iWeight");                        
+                        navigate("/user_gamepage");                        
                     }
                 },
                 {
                     label: 'Unstyled',
-                    url: '/iWeight'
+                    url: '/user_gamepage'
                 }
             ]
         },
