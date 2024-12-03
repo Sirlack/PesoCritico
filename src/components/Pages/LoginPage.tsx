@@ -10,12 +10,19 @@ import { modvalue } from "../../store/reducers/basicReducer";
 import { midvalue } from "../../store/reducers/userReducer";
 import { NavLink } from "react-router-dom";
 import { Dialog } from 'primereact/dialog';
+import { Navigate } from "react-router";
+import { Info } from "electron";
         
 
 class LoginPage extends React.Component<HeaderProps> {
 
     visible:boolean = false;
-    async readActor(value: any) {
+    validate:boolean = false;
+
+
+ 
+    
+    handleReadActor = async (value: any) => {
         let response = await apis.read(value);
         if(response){
             this.props.modvalue({ type: 'info.name', payload: response.name });
@@ -30,7 +37,11 @@ class LoginPage extends React.Component<HeaderProps> {
                 fieldName:"juego.namegame",
                 fieldValue:"The Gordos",
             });
-            this.props.modAction({type:'juego', payload:responseGame.juego});
+            if(responseGame){                
+                this.props.modAction({type:'juego', payload:responseGame.juego}); 
+                this.validate=true;
+            }
+
         }
         else{
             this.visible=true;
@@ -47,32 +58,42 @@ class LoginPage extends React.Component<HeaderProps> {
         );
     }
 
-    render(): React.ReactNode {
-        return (
-        <>
-                <div className="h-full flex items-center justify-center h-screen w-screen">
+    loginpage():any{
+        return(
+            <>
+            <div className="h-full flex items-center justify-center h-screen w-screen">
 
-                <div className="w-1/2 flex flex-col gap-4 content-around">
-                    <div className="">
-                <InputText className="w-full" value={this.props.userReducer.info.name} placeholder="Username" onChange={(e) => this.props.midvalue({ type: 'info.name', payload: e.target.value })} />
-                </div>
-                <div className="" >
-                <Password className="w-full" value={this.props.userReducer.info.password} placeholder="Password" onChange={(e) => this.props.midvalue({ type: 'info.password', payload: e.target.value })} feedback={false} tabIndex={1} />
-                </div> 
-                    <div className="">
-                <Button className="w-full" label="LogIn" icon="pi pi-check" onClick={() => this.readActor(this.props.userReducer)} />              
-                </div>              
-                <div className= ""><NavLink to="/create_user"><span className="flex justify-center font-serif text-sm tracking-wide text-blue-500 hover:text-blue-600">Create new user</span></NavLink></div>              
-                </div>  
-                <Dialog header="Header" visible={this.visible} style={{ width: '50vw' }} onHide={()=>{this.visible =false;}}>
-                <p className="m-0">
-                    No user!
-                </p>
-                </Dialog>
-                {/*this.popUpUserResponse()*/}
+            <div className="w-1/2 flex flex-col gap-4 content-around">
+                <div className="">
+            <InputText className="w-full" value={this.props.userReducer.info.name} placeholder="Username" onChange={(e) => this.props.midvalue({ type: 'info.name', payload: e.target.value })} />
             </div>
-        </>
+            <div className="" >
+            <Password className="w-full" value={this.props.userReducer.info.password} placeholder="Password" onChange={(e) => this.props.midvalue({ type: 'info.password', payload: e.target.value })} feedback={false} tabIndex={1} />
+            </div> 
+                <div className="">
+            <Button className="w-full" label="LogIn" icon="pi pi-check" onClick={() => this.handleReadActor(this.props.userReducer)} />              
+            </div>              
+            <div className= ""><NavLink to="/create_user"><span className="flex justify-center font-serif text-sm tracking-wide text-blue-500 hover:text-blue-600">Create new user</span></NavLink></div>              
+            </div>  
+            <Dialog header="Header" visible={this.visible} style={{ width: '50vw' }} onHide={()=>{this.visible =false;}}>
+            <p className="m-0">
+                No user!
+            </p>
+            </Dialog>
+            {/*this.popUpUserResponse()*/}
+        </div>
+    </> 
         );
+    }
+ 
+    render(): React.ReactNode {
+               
+        if(!this.validate){
+            return this.loginpage();
+        }
+        else{
+            return <Navigate to="/create_user" />;
+        }
     }
 }
 
